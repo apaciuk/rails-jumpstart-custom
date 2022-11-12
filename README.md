@@ -61,7 +61,7 @@ $ rails db:migrate:reset
 
 )
 
-###### Recommended To have globally per ruby version for use in projects and templates (dont forget rehash if rbenv)
+##### Recommended To have globally per ruby version for use in projects and templates (dont forget rehash if rbenv)
 
 gem install foreman
 gem install bundler-audit

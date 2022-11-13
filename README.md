@@ -150,6 +150,23 @@ production:
 With the environment, the service and the app_id/app_secret. If this is done correctly, you should see login links
 for the services you have added to the encrypted credentials using `EDITOR=vim rails credentials:edit`
 
+#### Multi tenant support/usage.
+
+Based on [https://dev.to/kolide/a-rails-multi-tenant-strategy-thats-30-lines-and-just-works-58cd]
+
+Base files already in place when generate app.
+
+To use, when making a new model, add an account_id column into it for use in a multi tenancy sertup (integer or uuid depending on your setup)
+and:   include AccountOwnable  in the model
+
+Example: bin/rails g model Post title content:text account_id:integer - then include the AccountOwnable concern
+
+Create an account in console  acc = Account.create(name: "An Account name") - will get an id which can be used in subsequent models account_id column.
+
+Basic set up done, has to be taken an customized from there by app creators.
+
+Read through article above for more tips.
+
 #### Redis set up
 
 ##### On OSX

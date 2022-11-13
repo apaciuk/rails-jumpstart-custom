@@ -26,7 +26,11 @@ module JumpstartCustom
     config.application_name = Rails.application.class.module_parent_name
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+     console do 
+      require 'console'
+      Rails::ConsoleMethods.send :include, App::Console
+      TOPLEVEL_BINDING.eval('self').extend App::Console
+    end
     config.generators do |g|
       g.orm :active_record
      # g.orm :active_record, primary_key_type: :uuid

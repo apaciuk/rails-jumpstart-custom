@@ -288,7 +288,7 @@ after_bundle do
   say "  rails db:create db:migrate"
   say "  rails g noticed:model && rails db:migrate"
   say "  rails g annotate:install && annotate"
-  say "  Place FactoryBot Syntax methods in rails_helper & uncomment Dir join line", :blue
+  say "  Place FactoryBot Syntax methods in rails_helper & uncomment Dir join line", :green
   say "  rails dev:cache"
   say "  bin/dev"
 end

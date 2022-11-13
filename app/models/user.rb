@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
+  belongs_to :account, optional: true
+
 
 # Roles, add other roles as required
   enum role: {

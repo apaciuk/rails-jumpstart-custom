@@ -69,13 +69,7 @@ gem install lefthook
 gem install ransack (esp if template not complete properly)
 gem install spreadsheet_architect (esp if template not complete properly)
 
-#### Creating a new app ("Y" overwrite the Readme)
-
-```bash
-rails new myapp -d postgresql -m https://raw.githubusercontent.com/excid3/jumpstart/master/template.rb
-```
-
-Or if you have downloaded this repo, you can reference template.rb locally:
+#### Creating a new app ("Y" overwrite the Readme) after download and unzip repo.
 
 ```bash
 rails new myapp -d postgresql -m template.rb

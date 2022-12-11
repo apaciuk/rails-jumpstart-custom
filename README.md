@@ -75,7 +75,8 @@ gem install spreadsheet_architect (esp if template not complete properly)
 rails new myapp -d postgresql -m template.rb
 ```
 
-❓Having trouble? Try adding `DISABLE_SPRING=1` before `rails new`. Spring will get confused if you create an app with the same name twice.
+❓Having trouble? Try adding `DISABLE_SPRING=1` before `rails new`. Spring will get confused if you create an app with the same name twice, and 'bundle clean --force' if any gem conflicts. 
+#### For Rails 6 remember to alter load defaults line in application.rb from 7.0 to 6.0
 
 #### Running your app
 
@@ -86,6 +87,21 @@ bin/dev
 You can also run them in separate terminals manually if you prefer.
 
 A separate `Procfile` is generated for deploying to production on Heroku.
+
+##### Devise extra fields
+
+After migration field/column added,
+
+Can be adjusted in application_controler, example below add a github_link
+
+def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar, :github_link])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar])
+end
+
+and add to the create method in onmniauth_controller
+
+github_link: auth.info.github_link
 
 #### Active Interaction
 

@@ -57,6 +57,7 @@ def add_gems
   add_gem 'active_interaction'
   add_gem 'bullet'
   add_gem 'annotate'
+  add_gem 'net-http'
 end
 
 def set_application_name

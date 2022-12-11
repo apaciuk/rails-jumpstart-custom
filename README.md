@@ -87,6 +87,21 @@ You can also run them in separate terminals manually if you prefer.
 
 A separate `Procfile` is generated for deploying to production on Heroku.
 
+##### Devise extra fields
+
+After migration field/column added,
+
+Can be adjusted in application_controler, example below add a github_link
+
+def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar, :github_link])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar])
+end
+
+and add to the create method in onmniauth_controller
+
+github_link: auth.info.github_link
+
 #### Active Interaction
 
 [https://github.com/aaronlasseigne/active_interaction]

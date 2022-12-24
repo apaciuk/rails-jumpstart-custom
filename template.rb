@@ -38,6 +38,7 @@ def add_gems
   add_gem 'devise', '~> 4.8', '>= 4.8.0'
   add_gem 'friendly_id', '~> 5.4'
   add_gem 'jsbundling-rails'
+  add_gem 'hotwire-rails'
   add_gem 'name_of_person', '~> 1.1'
   add_gem 'noticed', '~> 1.4'
   add_gem 'omniauth-facebook', '~> 8.0'

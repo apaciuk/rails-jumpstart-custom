@@ -75,7 +75,7 @@ module Users
     def create_user
       User.create(
         email: auth.info.email,
-        #name: auth.info.name,
+        #username: auth.info.username,
         password: Devise.friendly_token[0,20]
       )
     end

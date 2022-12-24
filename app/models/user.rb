@@ -23,25 +23,14 @@ class User < ApplicationRecord
     self.role ||= :user
   end 
 
-  # Example other role set method not actioned.
-  def set_alt_role
-	case role.to_sym
-	when :member
-		self.role = :member
-	else
-		self.role = :user
-	end
-  end
-  
-  # Example user from_amniauth method not actioned.
+  # Example user from_omniauth method not actioned.
   def self.from_omniauth(auth) 
-	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-		user.email = auth.info.email
-		user.password = Devise.friendly_token[0,20]
-		user.first_name = auth.info.first_name
-		user.last_name = auth.info.last_name
-		user.avatar.attach(io: open(auth.info.image), filename: "#{auth.info.first_name}_#{auth.info.last_name}.jpg")
-	end
-   end
+	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.username = auth.info.username   # assuming the user model has a username
+		  user.email = auth.info.email
+		  user.password = Devise.friendly_token[0,20]
+      user.avatar.attach(io: open(auth.info.image), filename: "#{auth.info.username}.jpg")
+	  end
+  end
 
 end

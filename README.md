@@ -159,6 +159,10 @@ production:
 With the environment, the service and the app_id/app_secret. If this is done correctly, you should see login links
 for the services you have added to the encrypted credentials using `EDITOR=vim rails credentials:edit`
 
+###### Turbo/Hotwire
+
+[https://github.com/hotwired/turbo-rails#installation]
+
 #### Redis set up
 
 ##### On OSX
@@ -173,7 +177,7 @@ brew services start redis
 
 ```
 sudo apt-get install redis-server
-```
+
 
 #### Cleaning up
 

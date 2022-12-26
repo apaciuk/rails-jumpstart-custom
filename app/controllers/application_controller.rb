@@ -1,24 +1,16 @@
 class ApplicationController < ActionController::Base
-  impersonates :user
-  include Pundit
-
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :set_current_user, :set_current_request_id, if: :user_signed_in?
-
-  before_action :set_current_request_id
+  before_action :set_current_user, if: :user_signed_in?
 
   private 
 
-  def set_current_user
-		Current.user = current_user
-	end
+    def set_current_user
+        Current.user = current_user
+    end
 
-	def set_current_request_id
-		Current.request_id = request.uuid
-	end
 
 
   protected

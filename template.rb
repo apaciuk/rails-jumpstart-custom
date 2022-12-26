@@ -44,8 +44,6 @@ def add_gems
   add_gem 'omniauth-facebook', '~> 8.0'
   add_gem 'omniauth-github', '~> 2.0'
   add_gem 'omniauth-twitter', '~> 1.4'
-  add_gem 'pretender', '~> 0.3.4'
-  add_gem 'pundit', '~> 2.1'
   add_gem 'sidekiq', '~> 6.2'
   add_gem 'sidekiq-scheduler'
   add_gem 'sitemap_generator', '~> 6.1'
@@ -114,10 +112,6 @@ def add_users
   end
 
   inject_into_file("app/models/user.rb", "omniauthable, :", after: "devise :")
-end
-
-def add_authorization
-  generate 'pundit:install'
 end
 
 def default_to_esbuild
@@ -246,7 +240,6 @@ add_gems
 after_bundle do
   set_application_name
   add_users
-  add_authorization
   add_javascript
   add_announcements
   add_notifications
@@ -279,7 +272,7 @@ after_bundle do
   end
 
   say
-  say "Jumpstart Custom successfully created!", :blue
+  say "Jumpstart Custom successfully created!", :green
   say
   say "To get started with your new app:", :green
   say "  cd #{original_app_name}"

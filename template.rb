@@ -98,7 +98,7 @@ def add_users
   end
 
   environment "config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }", env: 'development'
-  generate :devise, "User", "first_name", "last_name", "announcements_last_read_at:datetime", "admin:boolean", "role:integer"
+  generate :devise, "User", "first_name", "last_name", "username", "announcements_last_read_at:datetime", "admin:boolean", "role:integer"
 
   # Set admin & role defaults
   in_root do

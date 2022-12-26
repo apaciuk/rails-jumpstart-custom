@@ -20,7 +20,7 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module JumpstartCustom
+module Jumpstart
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
     config.application_name = Rails.application.class.module_parent_name
@@ -29,8 +29,8 @@ module JumpstartCustom
 
     config.generators do |g|
       g.orm :active_record
-     # g.orm :active_record, primary_key_type: :uuid
-     # g.orm :active_record, foreign_key_type: :uuid
+      g.orm :active_record, primary_key_type: :uuid
+      g.orm :active_record, foreign_key_type: :uuid
       g.template_engine :erb
       g.test_framework  :rspec, fixture: false
       g.fixture_replacement :factory_bot, dir: 'spec/factories'

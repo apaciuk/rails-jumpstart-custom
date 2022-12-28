@@ -38,12 +38,13 @@ g.helper false
 g.system_tests nil
 end
 
-### Default is int8 ID's - To use UUIDs in current migration files
+### To use UUIDs in current migration files
 
-- After setup complete, check above generators are set, In current migration files, for UUIDs, ensure uncommented config generator lines, place lines in all migrations as below:
+- In current migration files, for UUIDs, ensure uncommented config generator lines, place lines in all migration files as below:
 
-- create table lines: insert after the table name: ", id: :uuid" # minus quotes, sets Primary key uuid
-- foreign_key lines: append: ", type: :uuid" # minus quotes, sets Foreign key uuid
+- create table expression: insert after the table name: ", id: :uuid" # minus quotes, sets Primary key uuid
+- foreign_key expression: append: ", type: :uuid" # minus quotes, sets Foreign key uuid
+- In ApplicationRecord insert - self.implicit_order_column = 'created_at'  under primary_abstract_class line
 
 $ rails db:migrate:reset
 

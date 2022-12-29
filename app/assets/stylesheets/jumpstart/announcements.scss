@@ -18,4 +18,17 @@
   height: 8px;
   width: 8px;
   margin-right: 6px;
+} 
+
+@keyframes appear-and-fade {
+
+    0%,
+    100% {
+        opacity: 0
+    }
+
+    5%,
+    60% {
+        opacity: 1
+    }
 }

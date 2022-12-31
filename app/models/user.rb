@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services
-
+  validates_uniqueness_of :username 
+  
 # Roles, add other roles as required
   enum role: {
     user: 0,

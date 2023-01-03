@@ -251,6 +251,7 @@ after_bundle do
   add_announcements_css
   add_esbuild_script
   rails_command "active_storage:install"
+  rails_command "action_text:install"
   rails_command "generate rspec:install"
 
   # Make sure Linux is in the Gemfile.lock for deploying

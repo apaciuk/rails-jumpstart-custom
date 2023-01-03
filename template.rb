@@ -44,7 +44,7 @@ def add_gems
   add_gem 'omniauth-facebook', '~> 8.0'
   add_gem 'omniauth-github', '~> 2.0'
   add_gem 'omniauth-twitter', '~> 1.4'
-  add_gem 'sidekiq', '~> 6.2'
+  add_gem 'sidekiq', '~> 6.5.8'
   add_gem 'sidekiq-scheduler'
   add_gem 'sitemap_generator', '~> 6.1'
   add_gem 'whenever', require: false

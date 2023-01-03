@@ -54,7 +54,6 @@ def add_gems
   add_gem 'brakeman'
   add_gem 'faker'
   add_gem 'active_interaction'
-  add_gem 'bullet'
   add_gem 'annotate'
 end
 

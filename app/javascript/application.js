@@ -10,8 +10,8 @@ require("@rails/actiontext")
 require("local-time").start()
 require("@rails/ujs").start()
 
-import './channels/**/*_channel.js'
-import "./controllers"
+// import './channels/**/*_channel.js'  need fix
+// import "./controllers"
 
 import * as bootstrap from "bootstrap"
 
@@ -26,3 +26,6 @@ document.addEventListener("turbo:load", () => {
     return new bootstrap.Popover(popoverTriggerEl)
   })
 })
+
+import "trix"
+import "@rails/actiontext"

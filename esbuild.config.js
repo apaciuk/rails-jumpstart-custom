@@ -1,18 +1,23 @@
-const path = require('path')
 const rails = require('esbuild-rails')
+const path = require('path')
 
-const watch = process.argv.includes("--watch") && {
-  onRebuild(error) {
-    if (error) console.error("[watch] build failed", error);
-    else console.log("[watch] build finished");
-  },
-};
-
-require("esbuild").build({
+require("esbuild").context({
   entryPoints: ["application.js"],
   bundle: true,
+  sourcemap: true,
+  publicPath: 'assets',
   outdir: path.join(process.cwd(), "app/assets/builds"),
   absWorkingDir: path.join(process.cwd(), "app/javascript"),
-  watch: watch,
-  plugins: [rails()],
-}).catch(() => process.exit(1));
+  plugins: [],
+  minify: process.argv.includes("--minify")
+}).then(context => {
+  if (process.argv.includes("--watch")) {
+    // Enable watch mode
+    context.watch()
+  } else {
+    // Build once and exit if not in watch mode
+    context.rebuild().then(result => {
+      context.dispose()
+    })
+  }
+}).catch(() => process.exit(1))
